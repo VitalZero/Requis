@@ -5,8 +5,8 @@
 class Element
 {
 public:
-	Element(uint32_t requi, time_t fechaElab,
-		time_t fechaSol, time_t fechaAut, uint64_t monto, bool aplicaIva, bool authorized = false);
+	Element(uint32_t requi, time_t originDate,
+		time_t requestDate, time_t authorizedDate, uint64_t amount, bool hasTax, bool authorized = false);
 	void SetId(uint32_t id)
 	{
 		this->id = id;

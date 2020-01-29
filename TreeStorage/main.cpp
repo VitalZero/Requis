@@ -6,7 +6,7 @@
 int main()
 {
 	//test code to insert elements to records and save to file
-	
+	{
 		time_t sol = 0;
 		time_t elab = 0;
 		std::time(&sol);
@@ -20,16 +20,16 @@ int main()
 		reg.SaveToFile();
 		std::cout << "The following records has been saved: \n";
 		reg.ListRequi();
-	
+	}
 
 	std::cout << "======================================\n";
 	//test code to load elements to memory from file
-	//{
-	//	Records reg;
-	//	reg.LoadFromFile();
-	//	std::cout << "\nThe following records has been loaded \n";
-	//	reg.ListRequi();
-	//}
+	{
+		Records reg;
+		reg.LoadFromFile();
+		std::cout << "\nThe following records has been loaded \n";
+		reg.ListRequi();
+	}
 
 	std::cin.get();
 	return 0;

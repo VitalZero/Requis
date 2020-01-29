@@ -1,8 +1,8 @@
 #include "Element.h"
 #include <iostream>
 
-Element::Element(uint32_t requi, time_t fechaElab,
-	time_t fechaSol, time_t fechaAut, uint64_t monto, bool aplicaIva, bool authorized)
+Element::Element(uint32_t requi, time_t originDate,
+	time_t requestDate, time_t authorizedDate, uint64_t amount, bool hasTax, bool authorized)
 	:
 	requi(requi),
 	originDate(originDate),
