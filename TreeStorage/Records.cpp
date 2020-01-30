@@ -7,6 +7,7 @@
 
 void Records::Insert(Element & element)
 {
+	//autoincrement record count and use it as indes (id)
 	element.SetId(++nRecords);
 	elements.emplace_back(element);
 }
@@ -24,12 +25,12 @@ void Records::SaveToFile()
 		{
 			for (auto& e : elements)
 			{
-				uint32_t tmpId = e.GetId();
-				uint32_t tmpRequi = e.GetRequi();
+				uint16_t tmpId = e.GetId();
+				uint16_t tmpRequi = e.GetRequi();
 				time_t tmpOrigin = e.GetOriginDate();
 				time_t tmpRequest = e.GetRequestDate();
 				time_t tmpAuth = e.GetAuthorizedDate();
-				uint64_t tmpAmount = e.GetAmount();
+				uint32_t tmpAmount = e.GetAmount();
 				bool tmpTaxed = e.IsTaxed();
 				bool tmoAuthorized = e.IsAuthorized();
 
@@ -63,12 +64,12 @@ void Records::LoadFromFile()
 
 			for (unsigned int i = 0; i < nTmpRecords && file.good(); ++i)
 			{
-				uint32_t tmpId = 0;
-				uint32_t tmpRequi = 0;
+				uint16_t tmpId = 0;
+				uint16_t tmpRequi = 0;
 				time_t tmpOrigin = 0;
 				time_t tmpRequest = 0;
 				time_t tmpAuth = 0;
-				uint64_t tmpAmount = 0;
+				uint32_t tmpAmount = 0;
 				bool tmpTaxed;
 				bool tmpAuthorized;
 
@@ -86,7 +87,6 @@ void Records::LoadFromFile()
 
 				tmpElement.SetId(tmpId);
 				elements.emplace_back(tmpElement);
-				
 			}
 		}
 	}

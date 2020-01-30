@@ -5,21 +5,17 @@
 class Element
 {
 public:
-	Element(uint32_t requi, time_t originDate,
-		time_t requestDate, time_t authorizedDate, uint64_t amount, bool hasTax, bool authorized = false);
-	void SetId(uint32_t id)
+	Element(uint16_t requi, time_t originDate,
+		time_t requestDate, time_t authorizedDate, uint32_t amount, bool hasTax, bool authorized = false);
+	void SetId(uint16_t id)
 	{
 		this->id = id;
 	}
-	uint32_t GetId() const
+	uint16_t GetId() const
 	{
 		return id;
 	}
-	bool operator<(const Element& rhs) const
-	{
-		return requi < rhs.requi;
-	}
-	uint32_t GetRequi() const
+	uint16_t GetRequi() const
 	{
 		return requi;
 	}
@@ -35,7 +31,7 @@ public:
 	{
 		return authorizedDate;
 	}
-	uint64_t GetAmount() const
+	uint32_t GetAmount() const
 	{
 		return amount;
 	}
@@ -47,7 +43,6 @@ public:
 	{
 		return authorized;
 	}
-	void Authorize();
 	bool operator<(const Element& rhs)
 	{
 		return requi < rhs.requi;
@@ -60,14 +55,19 @@ public:
 	{
 		return requi == rhs.requi;
 	}
+	bool operator!=(const Element& rhs)
+	{
+		return !(*this == rhs);
+	}
+	void Authorize();
 	void Print();
 private:
-	uint32_t id;
-	uint32_t requi;
+	uint16_t id;
+	uint16_t requi;
 	time_t originDate;
 	time_t requestDate;
 	time_t authorizedDate;
-	uint64_t amount;
+	uint32_t amount;
 	bool hasTax;
 	bool reviewed = true;
 	bool authorized = false;

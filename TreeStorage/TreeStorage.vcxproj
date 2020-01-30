@@ -23,7 +23,7 @@
     <ProjectGuid>{76CFF9FD-6A69-44F9-83C1-C4C4204C5F84}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TreeStorage</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="Element.h" />
     <ClInclude Include="Records.h" />
+    <ClInclude Include="DateConverter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
