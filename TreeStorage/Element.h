@@ -1,7 +1,8 @@
 #pragma once
 #include <cstdint>
 #include <ctime>
-#include <iostream>
+#include <nop/serializer.h>
+#include <nop/structure.h>
 
 class Element
 {
@@ -62,7 +63,7 @@ public:
 		return !(*this == rhs);
 	}
 	void Authorize();
-	friend std::ostream& operator<<(std::ostream& out, const Element& rhs)
+	friend std::ostream& operator<<(std::ostream& out, const Element& rhs) 
 	{
 		out << "Id: " << rhs.GetId() << ", Requi: " << rhs.GetRequi() << ", Monto: $ "
 			<< int(rhs.GetAmount() / 100) << "." << int(rhs.GetAmount() % 100)
@@ -80,4 +81,6 @@ private:
 	bool hasTax;
 	bool reviewed = true;
 	bool authorized = false;
+	NOP_STRUCTURE( Element, id, requi, originDate, requestDate, authorizedDate,
+		amount, hasTax, reviewed, authorized );
 };
