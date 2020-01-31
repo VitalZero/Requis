@@ -6,6 +6,7 @@
 class Element
 {
 public:
+	Element() = default;
 	Element(uint16_t requi, time_t originDate,
 		time_t requestDate, time_t authorizedDate, uint32_t amount, bool hasTax, bool authorized = false);
 	void SetId(uint16_t id)
@@ -61,7 +62,6 @@ public:
 		return !(*this == rhs);
 	}
 	void Authorize();
-	void Print();
 	friend std::ostream& operator<<(std::ostream& out, const Element& rhs)
 	{
 		out << "Id: " << rhs.GetId() << ", Requi: " << rhs.GetRequi() << ", Monto: $ "

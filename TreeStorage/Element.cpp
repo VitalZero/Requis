@@ -19,9 +19,3 @@ void Element::Authorize()
 	authorized = true;
 }
 
-void Element::Print() // not used at the moment
-{
-	std::cout << "Id: " << id << ", Requi: " << requi << ", Monto: $ "
-		<< amount << std::endl;
-}
-
