@@ -15,7 +15,7 @@ Element::Element(uint16_t requi, time_t originDate,
 
 void Element::Authorize()
 {
-	std::time(&authorizedDate);
+	authorizedDate = std::time(nullptr);
 	authorized = true;
 }
 

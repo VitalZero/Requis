@@ -36,10 +36,7 @@ void Records::Insert(unsigned int requi, std::string originDate, std::string req
 
 void Records::SaveToFile()
 {
-	using Writer = nop::StreamWriter<std::ofstream>;
-	nop::Serializer<Writer> serializer{ "datos.txt" };
-	serializer.Write( elements ) || nop::Die( std::cerr );
-	/*std::ofstream file("datos.txt", std::ios::binary);
+	std::ofstream file("datos.txt", std::ios::binary);
 	assert(file);
 	if (file)
 	{
@@ -69,16 +66,12 @@ void Records::SaveToFile()
 				file.write(reinterpret_cast<char*>(&tmoAuthorized), sizeof(tmoAuthorized));
 			}
 		}
-	}*/
-
+	}
 }
 
 void Records::LoadFromFile()
 {
-	using Reader = nop::StreamReader<std::ifstream>;
-	nop::Deserializer<Reader> deserializer{ "datos.txt" };
-	deserializer.Read( &elements ) || nop::Die( std::cerr );
-	/*std::ifstream file("datos.txt", std::ios::binary);
+	std::ifstream file("datos.txt", std::ios::binary);
 	assert(file);
 
 	if (file)
@@ -117,7 +110,7 @@ void Records::LoadFromFile()
 				elements.emplace_back(tmpElement);
 			}
 		}
-	}*/
+	}
 }
 
 void Records::ListRequi(bool ordered)
