@@ -4,10 +4,27 @@
 #include <algorithm>
 #include <iterator>
 #include <iostream>
+#include "Util.h"
 
 void Records::Insert(Element & element)
 {
 	//autoincrement record count and use it as indes (id)
+	element.SetId(++nRecords);
+	elements.emplace_back(element);
+}
+
+void Records::Insert(unsigned int requi, std::string originDate, std::string requestDate, std::string authorizedDate, 
+	unsigned long amount, bool hasTax)
+{
+	time_t tmpAuthDate = 0;
+	if (authorizedDate.size() == 10)
+	{
+		tmpAuthDate = Util::ConvertDate(authorizedDate);
+	}
+
+	Element element((uint16_t)requi, Util::ConvertDate(originDate), Util::ConvertDate(requestDate), 
+		tmpAuthDate, amount, hasTax);
+
 	element.SetId(++nRecords);
 	elements.emplace_back(element);
 }
@@ -92,11 +109,14 @@ void Records::LoadFromFile()
 	}
 }
 
-void Records::ListRequi()
+void Records::ListRequi(bool ordered)
 {
 	if (elements.size() > 0)
 	{
-		std::sort(elements.begin(), elements.end());
+		if (ordered)
+		{
+			std::sort(elements.begin(), elements.end());
+		}
 
 		//test code
 		//auto result = std::find_if(elements.begin(), elements.end(), 

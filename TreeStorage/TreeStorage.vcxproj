@@ -154,7 +154,7 @@
   <ItemGroup>
     <ClInclude Include="Element.h" />
     <ClInclude Include="Records.h" />
-    <ClInclude Include="DateConverter.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

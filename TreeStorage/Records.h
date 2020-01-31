@@ -15,9 +15,11 @@ public:
 		return out;
 	}
 	void Insert(Element& element);
+	void Insert(unsigned int requi, std::string orignDate, std::string requestDate, std::string authorizedDate,
+		unsigned long amount, bool hasTax);
 	void SaveToFile();
 	void LoadFromFile();
-	void ListRequi();
+	void ListRequi(bool ordered = false);
 private:
 	std::vector<Element> elements;
 	unsigned int nRecords = 0;
