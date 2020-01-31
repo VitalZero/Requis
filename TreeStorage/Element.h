@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <ctime>
+#include <iostream>
 
 class Element
 {
@@ -61,6 +62,14 @@ public:
 	}
 	void Authorize();
 	void Print();
+	friend std::ostream& operator<<(std::ostream& out, const Element& rhs)
+	{
+		out << "Id: " << rhs.GetId() << ", Requi: " << rhs.GetRequi() << ", Monto: $ "
+			<< int(rhs.GetAmount() / 100) << "." << int(rhs.GetAmount() % 100)
+			<< (rhs.IsTaxed() ? " mas IVA" : " neto (no aplica IVA)");
+
+		return out;
+	}
 private:
 	uint16_t id;
 	uint16_t requi;

@@ -13,6 +13,11 @@ void Records::Insert(Element & element)
 	elements.emplace_back(element);
 }
 
+void Records::Insert(Element && element)
+{
+	Insert(element);
+}
+
 void Records::Insert(unsigned int requi, std::string originDate, std::string requestDate, std::string authorizedDate, 
 	unsigned long amount, bool hasTax)
 {

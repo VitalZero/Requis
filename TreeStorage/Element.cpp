@@ -1,5 +1,4 @@
 #include "Element.h"
-#include <iostream>
 
 Element::Element(uint16_t requi, time_t originDate,
 	time_t requestDate, time_t authorizedDate, uint32_t amount, bool hasTax, bool authorized)
