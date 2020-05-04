@@ -5,6 +5,14 @@
 
 int main()
 {
+#if defined(_MSVC_TRADITIONAL) && _MSVC_TRADITIONAL
+	// Logic using the traditional preprocessor
+	std::cout << "usando msvc traditional" << std::endl;
+#else
+	// Logic using cross-platform compatible preprocessor
+	std::cout << "No usando el tradicional" << std::endl;
+#endif
+
 	//test code to insert elements to records and save to file
 	{
 		time_t tRequest = 0;
@@ -19,7 +27,7 @@ int main()
 		reg.Insert(Element(45398, tElaboration, tRequest, 0, 58674, true));
 		reg.Insert(21518, "15/01/2020", "18/01/2020", "", 879965, true);
 		reg.SaveToFile();
-		std::cout << "The following records has been saved: \n";
+		std::cout << "The following records will be saved (try): \n";
 		reg.ListRequi();
 	}
 

@@ -82,6 +82,5 @@ private:
 	time_t authorizedDate;
 	uint32_t amount;
 	bool hasTax;
-	bool reviewed = true;
 	bool authorized = false;
 };
