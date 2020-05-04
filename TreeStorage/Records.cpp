@@ -129,17 +129,6 @@ void Records::ListRequi(bool ordered)
 			std::sort(elements.begin(), elements.end());
 		}
 
-		//test code
-		//auto result = std::find_if(elements.begin(), elements.end(), 
-		//	[](const Element& e)
-		//	{
-		//		return e.GetId() == 2;
-		//	});
-		//if (result != elements.end())
-		//{
-		//	std::cout << result->GetRequi() << std::endl;
-		//}
-
 		std::copy(elements.begin(), elements.end(), std::ostream_iterator<Element>(std::cout, "\n") );
 	}
 }

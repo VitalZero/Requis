@@ -22,10 +22,10 @@ int main()
 		std::time(&tElaboration);
 
 		Records reg;
-		reg.Insert(Element(22132, tElaboration, tRequest, 0, 1586450, true));
+		reg.Insert( 22340, "29/04/2020", "04/05/2020", "", 166320, true );
 		reg.Insert(Element(22340, tElaboration, tRequest, 0, 123490, false));
 		reg.Insert(Element(45398, tElaboration, tRequest, 0, 58674, true));
-		reg.Insert(21518, "15/01/2020", "18/01/2020", "", 879965, true);
+		reg.Insert(22339, "25/04/2020", "04/05/2020", "", 391320, true);
 		reg.SaveToFile();
 		std::cout << "The following records will be saved (try): \n";
 		reg.ListRequi();
