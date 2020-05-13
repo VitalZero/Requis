@@ -43,7 +43,6 @@ void Records::SaveToFile()
 	if (file)
 	{
 		nRecords = (unsigned int)elements.size();
-		//file.write(reinterpret_cast<char*>(&nRecords), sizeof(nRecords) );
 
 		if (nRecords > 0)
 		{
@@ -82,7 +81,7 @@ void Records::LoadFromFile()
 	{
 		unsigned int nTmpRecords = 0;
 		nRecords = 0;
-		//file.read(reinterpret_cast<char*>(&nTmpRecords), sizeof(nTmpRecords));
+
 		if ( ReadHeader( file ) )
 		{
 			if ( nRecords > 0 )
