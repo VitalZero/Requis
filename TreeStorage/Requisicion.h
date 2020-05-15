@@ -14,8 +14,8 @@ public:
 public:
 	Requi() = default;
 	Requi(unsigned int requi, unsigned long monto, Estatus estado = Estatus::Libre, unsigned short int impuesto = 16,
-		const std::string& fechaOrigen = "", const std::string& fechaSolicitud = "",
-		const std::string& fechaAutorizado = "");
+		const std::string& fechaOrigen = "0", const std::string& fechaSolicitud = "0",
+		const std::string& fechaAutorizado = "0");
 
 public:
 	void Serialize( std::ofstream& fs ) override;

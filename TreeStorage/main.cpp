@@ -48,16 +48,25 @@ int main()
 	Requisiciones.emplace_back( 22367, 1571001, Requi::Estatus::Libre, 16, "12/05/2020" );
 	Requisiciones.emplace_back( 22262, 2918560, Requi::Estatus::Libre, 16, "07/03/2020" );
 
-	std::ofstream file( "prueba.txt", std::ios::trunc );
-
-	//if ( !file.is_open() )
-	//{
-	//	throw std::exception( "No se pudo abrir el archivo" );
-	//}
-
-	for ( auto& r : Requisiciones )
 	{
-		r.Serialize( file );
+		std::ofstream file( "prueba.txt", std::ios::trunc );
+
+		//if ( !file.is_open() )
+		//{
+		//	throw std::exception( "No se pudo abrir el archivo" );
+		//}
+
+		for ( auto& r : Requisiciones )
+		{
+			r.Serialize( file );
+		}
+	}
+
+	{
+		std::ifstream file( "prueba.txt" );
+
+		Requi r;
+		r.Deserialize( file );
 	}
 
 	std::cin.get();
