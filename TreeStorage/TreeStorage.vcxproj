@@ -156,14 +156,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Element.cpp" />
-    <ClCompile Include="Records.cpp" />
+    <ClCompile Include="ColeccionRequis.cpp" />
+    <ClCompile Include="Encabezado.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Requisicion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Element.h" />
+    <ClInclude Include="Encabezado.h" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="Records.h" />
+    <ClInclude Include="ColeccionRequis.h" />
     <ClInclude Include="Requisicion.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>

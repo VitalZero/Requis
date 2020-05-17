@@ -13,13 +13,18 @@ public:
 
 public:
 	Requi() = default;
-	Requi(unsigned int requi, unsigned long monto, Estatus estado = Estatus::Libre, unsigned short int impuesto = 16,
-		const std::string& fechaOrigen = "0", const std::string& fechaSolicitud = "0",
-		const std::string& fechaAutorizado = "0");
+	Requi(unsigned int requi, unsigned long monto, const std::string& fechaOrigen, 
+		unsigned short int impuesto );
 
 public:
-	void Serialize( std::ofstream& fs ) override;
-	void Deserialize( std::ifstream& fs ) override;
+	void Serializar( std::ofstream& fs ) override;
+	void Deserializar( std::ifstream& fs ) override;
+	void Solicitar( const std::string& fechaSolicitud );
+	void Autorizar( const std::string& fechaAutorizado );
+	bool operator==( int requi )
+	{
+		return this->requi == requi;
+	}
 
 private:
 	unsigned int requi;

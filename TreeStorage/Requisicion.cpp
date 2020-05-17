@@ -1,14 +1,13 @@
 #include "Requisicion.h"
 
-Requi::Requi( unsigned int requi, unsigned long monto, Estatus estado, unsigned short int impuesto, 
-	const std::string & fechaOrigen, const std::string & fechaSolicitud, 
-	const std::string & fechaAutorizado )
+Requi::Requi( unsigned int requi, unsigned long monto, const std::string& fechaOrigen,
+	unsigned short int impuesto = 16 )
 	:
-	requi(requi), monto(monto), estado(estado), impuesto(impuesto), fechaOrigen(fechaOrigen),
-	fechaSolicitud(fechaSolicitud), fechaAutorizado(fechaAutorizado)
+	requi(requi), monto(monto), fechaOrigen(fechaOrigen), estado( Estatus::Libre ),
+	impuesto( impuesto ), fechaSolicitud("0"), fechaAutorizado("0")
 {}
 
-void Requi::Serialize( std::ofstream & fs )
+void Requi::Serializar( std::ofstream & fs )
 {
 	fs << requi << " ";
 	fs << monto << " ";
@@ -19,7 +18,7 @@ void Requi::Serialize( std::ofstream & fs )
 	fs << fechaAutorizado << " ";
 }
 
-void Requi::Deserialize( std::ifstream & fs )
+void Requi::Deserializar( std::ifstream & fs )
 {
 	fs >> requi;
 	fs >> monto;
@@ -30,4 +29,16 @@ void Requi::Deserialize( std::ifstream & fs )
 	fs >> fechaOrigen;
 	fs >> fechaSolicitud;
 	fs >> fechaAutorizado;
+}
+
+void Requi::Solicitar( const std::string & fechaSolicitud )
+{
+	estado = Estatus::Solicitado;
+	this->fechaSolicitud = fechaSolicitud;
+}
+
+void Requi::Autorizar( const std::string & fechaAutorizado )
+{
+	estado = Estatus::Autorizado;
+	this->fechaAutorizado = fechaAutorizado;
 }

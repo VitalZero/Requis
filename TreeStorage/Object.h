@@ -5,6 +5,6 @@
 class Object
 {
 public:
-	virtual void Serialize( std::ofstream& fs ) = 0;
-	virtual void Deserialize( std::ifstream& fs ) = 0;
+	virtual void Serializar( std::ofstream& fs ) = 0;
+	virtual void Deserializar( std::ifstream& fs ) = 0;
 };
