@@ -13,6 +13,11 @@ void Encabezado::Serializar( std::ofstream & fs )
 	fs << versionMayor << " ";
 	fs << versionMenor << " ";
 	fs << numRequis << "\n";
+
+	if ( fs.fail() )
+	{
+		throw std::exception( "Fallo en serializar encabezado" );
+	}
 }
 
 void Encabezado::Deserializar( std::ifstream & fs )
@@ -22,7 +27,7 @@ void Encabezado::Deserializar( std::ifstream & fs )
 
 	if ( tmpFirma[0] != firma[0] && tmpFirma[1] != firma[1] )
 	{
-		throw "Archivo invalido, no conocido";
+		throw std::exception("Tipo de archivo diferente");
 	}
 
 	char tmpMayor;

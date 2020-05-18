@@ -94,7 +94,16 @@ void ColeccionRequis::AutorizarRequi( int requi, const std::string & fechaAutori
 
 void ColeccionRequis::GuardarEncabezado( std::ofstream & out, Encabezado& encabezado )
 {
-	encabezado.Serializar( out );
+	try
+	{
+		encabezado.Serializar( out );
+	}
+	catch ( std::exception& e )
+	{
+		std::cout << "Error en guardar el archivo: " << e.what() << "\n";
+		std::cout << "El archivo no se guardo." << std::endl;
+	}
+
 }
 
 bool ColeccionRequis::LeerEncabezado( std::ifstream& in, Encabezado& encabezado )
@@ -105,7 +114,8 @@ bool ColeccionRequis::LeerEncabezado( std::ifstream& in, Encabezado& encabezado 
 	}
 	catch ( std::exception& e )
 	{
-		std::cout << "Encabezado incorrecto: " << e.what() << std::endl;
+		std::cout << "Encabezado incorrecto: " << e.what() << "\n";
+		std::cout << "No se pudo leer el archivo." << std::endl;
 		return false;
 	}
 
